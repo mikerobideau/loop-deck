@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://3vrs0yc1s8lg"]
+
+[ext_resource type="Script" path="res://component/hand/hand.gd" id="1_qppw5"]
+
+[node name="Hand" type="Panel"]
+offset_right = 1400.0
+offset_bottom = 200.0
+script = ExtResource("1_qppw5")
+
+[node name="CDs" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://btd1mk7o43nwv"]
+
+[ext_resource type="Texture2D" uid="uid://c2ykippqtdfii" path="res://asset/cd/1x/cd.png" id="1_dipo6"]
+[ext_resource type="Script" path="res://component/cd/cd.gd" id="1_o2wyu"]
+
+[node name="Cd" type="TextureRect"]
+texture = ExtResource("1_dipo6")
+script = ExtResource("1_o2wyu")
