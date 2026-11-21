@@ -25,11 +25,8 @@ position = Vector2(874, 232)
 [node name="Tray3" parent="." instance=ExtResource("2_r8myk")]
 position = Vector2(1358, 292)
 
-[node name="Draggable1" parent="." instance=ExtResource("1_p0xng")]
-position = Vector2(222, 716)
+[node name="Draggable" parent="." instance=ExtResource("1_p0xng")]
+position = Vector2(1211, 964)
 
 [node name="Draggable2" parent="." instance=ExtResource("1_p0xng")]
-position = Vector2(1416, 704)
-
-[node name="Draggable3" parent="." instance=ExtResource("1_p0xng")]
-position = Vector2(905, 871)
+position = Vector2(339, 767)

@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_858co"]
 size = Vector2(209, 207)
 
-[node name="Draggable" type="Node2D"]
+[node name="Draggable" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_thu8g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

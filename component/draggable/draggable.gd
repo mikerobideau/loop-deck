@@ -10,13 +10,9 @@ var body_ref: StaticBody2D
 var offset: Vector2
 var initial_pos: Vector2
 
-func _ready():
-	draggable = true
-
 func _process(delta):
 	if draggable:
 		if Input.is_action_just_pressed('click'):
-			print_debug('click')
 			initial_pos = global_position
 			offset = get_global_mouse_position() - global_position
 			DragDrop.is_dragging = true
