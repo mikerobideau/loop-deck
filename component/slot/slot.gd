@@ -1,10 +1,15 @@
 class_name Slot
 extends Panel
 
+signal clicked(slot: Slot)
 #signal card_dragged_into_slot(card: Card, slot: Slot)
 #signal card_dragged_out_of_slot(card: Card, slot: Slot)
 
 @onready var card_container = $CardContainer
+
+func _on_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed('click') or event.is_action_pressed('ui_accept'):
+		clicked.emit(self)
 
 func set_card(card: Card):
 	if get_card() == card:

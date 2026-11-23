@@ -1,11 +1,16 @@
 class_name Card
 extends Control
 
+signal clicked(card: Card)
 signal drag_started(card: Card)
 signal drag_ended(card: Card)
 
+const DRAG_THRESHOLD := 8.0
 const SCALE_NORMAL = Vector2(1.0, 1.0)
 const SCALE_LARGE = Vector2(1.05, 1.05)
+const Z_RAISED = 10
+
+static var any_dragging := false
 
 var scale_tween: Tween
 var hovered = false
@@ -14,38 +19,62 @@ var dragging := false
 var moving := false
 var home_position: Vector2
 var drop_accepted := false
+var pressing := false
+var press_global : Vector2
+var selected := false
 
 func _ready():
 	pivot_offset = size / 2
 
 func _process(delta: float):
+	if pressing and not dragging and get_global_mouse_position().distance_to(press_global) > DRAG_THRESHOLD:
+		pressing = false
+		_start_drag()
 	if dragging:
 		global_position = get_global_mouse_position() - offset
+		
+func _draw():
+	if selected:
+		draw_rect(Rect2(Vector2(-4, -4), size + Vector2(8,8)), Color(Color.AQUA), false, 5.0)
 
 func _on_gui_input(event: InputEvent) -> void:
-	if dragging and event.is_action_released('click'):
-		_end_drag()
-		return
-	if not DragDrop.is_dragging and !moving and event.is_action_pressed("click"):
-		_start_drag()
+	if event.is_action_pressed("click") and not Card.any_dragging and !moving:
+		pressing = true
+		press_global = get_global_mouse_position()
+		offset = press_global - global_position
+		_update_z()
+	elif event.is_action_pressed('ui_accept'):
+		clicked.emit(self)
 			
 func _input(event: InputEvent):
-	if dragging and event.is_action_released('click'):
-		_end_drag()
-		get_viewport().set_input_as_handled()
-			
+	if event.is_action_released('click'):
+		if dragging:
+			_end_drag()
+			get_viewport().set_input_as_handled()
+		elif pressing:
+			pressing = false
+			clicked.emit(self)
+			_update_z()
+
+func set_selected(on: bool):
+	selected = on
+	_update_z()
+	queue_redraw()
+	
 func _start_drag():
-	z_index = 100
-	home_position = position
+	pressing = false
 	dragging = true
-	DragDrop.is_dragging = true
-	offset = get_global_mouse_position() - global_position
+	Card.any_dragging = true
+	_update_z()
+	home_position = position
 	drag_started.emit(self)
 	
 func _end_drag():
+	pressing = false
 	_scale(SCALE_NORMAL)
+	_update_z()
 	dragging = false
-	DragDrop.is_dragging = false
+	Card.any_dragging = false
 	drag_ended.emit(self)
 	
 func accept_drop():
@@ -55,12 +84,13 @@ func accept_drop():
 	
 func _slide_to(to_pos: Vector2):
 	moving = true
+	_update_z()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, 'position', to_pos, 0.2)
 	await tween.finished
 	moving = false
-	z_index = 0
+	_update_z()
 	
 func return_home():
 	print_debug('returning home')
@@ -69,7 +99,7 @@ func return_home():
 func _on_mouse_entered() -> void:
 	if dragging or moving:
 		return
-	if not DragDrop.is_dragging:
+	if not Card.any_dragging:
 		hovered = true
 		_scale(SCALE_LARGE)
 
@@ -84,3 +114,6 @@ func _scale(new_scale: Vector2):
 	scale_tween = create_tween()
 	scale_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	scale_tween.tween_property(self, 'scale', new_scale, 0.2)
+	
+func _update_z():
+	z_index = Z_RAISED if (pressing or dragging or moving or selected) else 0
