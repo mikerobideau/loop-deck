@@ -1,6 +1,7 @@
 class_name Card
 extends Control
 
+signal drag_started(card: Card)
 signal drag_ended(card: Card)
 
 const SCALE_NORMAL = Vector2(1.0, 1.0)
@@ -10,8 +11,9 @@ var scale_tween: Tween
 var hovered = false
 var offset: Vector2
 var dragging := false
-var returning_home := false
+var moving := false
 var home_position: Vector2
+var drop_accepted := false
 
 func _ready():
 	pivot_offset = size / 2
@@ -24,7 +26,7 @@ func _on_gui_input(event: InputEvent) -> void:
 	if dragging and event.is_action_released('click'):
 		_end_drag()
 		return
-	if not DragDrop.is_dragging and !returning_home and event.is_action_pressed("click"):
+	if not DragDrop.is_dragging and !moving and event.is_action_pressed("click"):
 		_start_drag()
 			
 func _input(event: InputEvent):
@@ -37,24 +39,33 @@ func _start_drag():
 	dragging = true
 	DragDrop.is_dragging = true
 	offset = get_global_mouse_position() - global_position
+	drag_started.emit(self)
 	
 func _end_drag():
 	_scale(SCALE_NORMAL)
 	dragging = false
 	DragDrop.is_dragging = false
 	drag_ended.emit(self)
-	return_home()
 	
-func return_home():
-	returning_home = true
+func accept_drop():
+	drop_accepted = true
+	home_position = Vector2.ZERO
+	_slide_to(Vector2.ZERO)
+	
+func _slide_to(to_pos: Vector2):
+	moving = true
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	tween.tween_property(self, 'position', home_position, 0.2)
+	tween.tween_property(self, 'position', to_pos, 0.2)
 	await tween.finished
-	returning_home = false
+	moving = false
+	
+func return_home():
+	print_debug('returning home')
+	_slide_to(home_position)
 
 func _on_mouse_entered() -> void:
-	if dragging or returning_home:
+	if dragging or moving:
 		return
 	if not DragDrop.is_dragging:
 		hovered = true

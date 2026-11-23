@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://blidhtor3fjsk"]
+
+[ext_resource type="PackedScene" uid="uid://bgs32ywb1nnbx" path="res://component/slot/slot.tscn" id="1_a3avi"]
+[ext_resource type="Script" path="res://component/board/board.gd" id="1_sxw61"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4rp37"]
+
+[node name="Board" type="Panel"]
+offset_right = 1600.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4rp37")
+script = ExtResource("1_sxw61")
+
+[node name="Slots" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -712.0
+offset_top = -150.0
+offset_right = 712.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot1" parent="Slots" instance=ExtResource("1_a3avi")]
+layout_mode = 2
+
+[node name="Slot2" parent="Slots" instance=ExtResource("1_a3avi")]
+layout_mode = 2
+
+[node name="Slot3" parent="Slots" instance=ExtResource("1_a3avi")]
+layout_mode = 2
+
+[node name="Slot4" parent="Slots" instance=ExtResource("1_a3avi")]
+layout_mode = 2
+
+[node name="Slot5" parent="Slots" instance=ExtResource("1_a3avi")]
+layout_mode = 2
+
+[node name="Slot6" parent="Slots" instance=ExtResource("1_a3avi")]
+layout_mode = 2
+
+[node name="Slot7" parent="Slots" instance=ExtResource("1_a3avi")]
+layout_mode = 2

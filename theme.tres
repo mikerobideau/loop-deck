@@ -1,8 +1,11 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://8adn8ovasfa5"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://8adn8ovasfa5"]
 
 [ext_resource type="FontFile" uid="uid://dw5n682lgmwnt" path="res://font/Inter/static/Inter_28pt-Black.ttf" id="1_15yg4"]
 [ext_resource type="FontFile" uid="uid://cyyrsqyf4ydna" path="res://font/Inter/static/Inter_24pt-SemiBold.ttf" id="1_36jcs"]
 [ext_resource type="FontFile" uid="uid://bhkefggrx3r5x" path="res://font/Inter/static/Inter_24pt-Regular.ttf" id="2_bbv5n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jneas"]
+bg_color = Color(0.447059, 0.447059, 0.447059, 0.25098)
 
 [resource]
 HeaderLarge/fonts/font = ExtResource("1_15yg4")
@@ -10,3 +13,4 @@ HeaderMedium/fonts/font = ExtResource("1_36jcs")
 HeaderSmall/font_sizes/font_size = 20
 HeaderSmall/fonts/font = ExtResource("1_36jcs")
 Label/fonts/font = ExtResource("2_bbv5n")
+Panel/styles/panel = SubResource("StyleBoxFlat_jneas")

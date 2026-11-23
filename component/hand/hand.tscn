@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://3vrs0yc1s8lg"]
 
 [ext_resource type="Script" path="res://component/hand/hand.gd" id="1_qppw5"]
-[ext_resource type="PackedScene" uid="uid://bgs32ywb1nnbx" path="res://component/hand/hand_slot.tscn" id="2_2grxx"]
+[ext_resource type="PackedScene" uid="uid://bgs32ywb1nnbx" path="res://component/slot/slot.tscn" id="2_2grxx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ih8h6"]
 
