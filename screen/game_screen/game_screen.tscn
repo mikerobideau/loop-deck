@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://screen/game_screen/game_screen.gd" id="1_8q3pw"]
 [ext_resource type="PackedScene" uid="uid://3vrs0yc1s8lg" path="res://component/hand/hand.tscn" id="2_5af6g"]
-[ext_resource type="Script" path="res://screen/game_screen/drag_drop.gd" id="2_iosp5"]
+[ext_resource type="Script" path="res://screen/game_screen/controls.gd" id="2_iosp5"]
 [ext_resource type="PackedScene" uid="uid://blidhtor3fjsk" path="res://component/board/board.tscn" id="3_ro3h3"]
 
 [node name="GameScreen" type="Control"]
@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8q3pw")
 
-[node name="DragDrop" type="Node2D" parent="."]
+[node name="Controls" type="Node2D" parent="."]
 script = ExtResource("2_iosp5")
 
 [node name="Background" type="ColorRect" parent="."]

@@ -44,15 +44,6 @@ func clear_card():
 		
 func is_empty():
 	return card_container.get_child_count() == 0
-
-#func _on_mouse_entered() -> void:
-#	if DragDrop.is_dragging:
-#		print_debug('Card dragged into slot')
-#		card_dragged_into_slot.emit()
-
-#func _on_mouse_exited() -> void:
-#	if DragDrop.is_dragging:
-#		card_dragged_out_of_slot.emit()
-
+	
 func set_highlight(on: bool):
 	modulate = Color(1.3, 1.3, 1.3) if on else Color.WHITE

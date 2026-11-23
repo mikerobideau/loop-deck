@@ -1,4 +1,4 @@
-class_name DragDropController
+class_name Controls
 extends Node2D
 
 signal card_moved(card: Card, from_slot: Slot, to_slot: Slot)

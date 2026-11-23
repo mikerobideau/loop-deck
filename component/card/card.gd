@@ -42,9 +42,6 @@ func _draw():
 		draw_rect(Rect2(Vector2(-4, -4), size + Vector2(8,8)), SELECTED_COLOR, false, 5.0)
 
 func _on_gui_input(event: InputEvent) -> void:
-	if event is InputEventJoypadButton:
-		print(name, " button=", event.button_index, " pressed=", event.pressed,
-			" ui_accept=", event.is_action_pressed("ui_accept"))
 	if event.is_action_pressed('click') and not Card.any_dragging and !moving:
 		pressing = true
 		press_global = get_global_mouse_position()
@@ -100,7 +97,6 @@ func _slide_to(to_pos: Vector2):
 	_update_z()
 	
 func return_home():
-	print_debug('returning home')
 	_slide_to(home_position)
 
 func _on_mouse_entered() -> void:

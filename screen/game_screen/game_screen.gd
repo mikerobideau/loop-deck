@@ -1,15 +1,15 @@
 class_name GameScreen
 extends Control
 
-@onready var drag_drop = $DragDrop
+@onready var controls = $Controls
 @onready var board = $Board
 @onready var hand = $Hand
 
 func _ready():
-	drag_drop.register_slots(hand.get_slots())
-	drag_drop.register_slots(board.get_slots())
-	hand.card_drawn.connect(drag_drop.register_card)
-	drag_drop.card_moved.connect(_on_card_moved)
+	controls.register_slots(hand.get_slots())
+	controls.register_slots(board.get_slots())
+	hand.card_drawn.connect(controls.register_card)
+	controls.card_moved.connect(_on_card_moved)
 	hand.deal()
 	hand.get_slots()[0].get_card().grab_focus()
 
