@@ -1,12 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://3vrs0yc1s8lg"]
+[gd_scene load_steps=4 format=3 uid="uid://3vrs0yc1s8lg"]
 
 [ext_resource type="Script" path="res://component/hand/hand.gd" id="1_qppw5"]
+[ext_resource type="PackedScene" uid="uid://bgs32ywb1nnbx" path="res://component/hand/hand_slot.tscn" id="2_2grxx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ih8h6"]
 
 [node name="Hand" type="Panel"]
-offset_right = 1400.0
-offset_bottom = 200.0
+offset_right = 1600.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ih8h6")
 script = ExtResource("1_qppw5")
 
-[node name="CDs" type="HBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Slots" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -712.0
+offset_top = -150.0
+offset_right = 712.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HandSlot1" parent="Slots" instance=ExtResource("2_2grxx")]
+layout_mode = 2
+
+[node name="HandSlot2" parent="Slots" instance=ExtResource("2_2grxx")]
+layout_mode = 2
+
+[node name="HandSlot3" parent="Slots" instance=ExtResource("2_2grxx")]
+layout_mode = 2
+
+[node name="HandSlot4" parent="Slots" instance=ExtResource("2_2grxx")]
+layout_mode = 2
+
+[node name="HandSlot5" parent="Slots" instance=ExtResource("2_2grxx")]
+layout_mode = 2
+
+[node name="HandSlot6" parent="Slots" instance=ExtResource("2_2grxx")]
+layout_mode = 2
+
+[node name="HandSlot7" parent="Slots" instance=ExtResource("2_2grxx")]
+layout_mode = 2

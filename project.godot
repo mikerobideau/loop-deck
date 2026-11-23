@@ -24,6 +24,10 @@ DragDrop="*res://global/drag_drop.gd"
 window/size/viewport_width=2560
 window/size/viewport_height=1440
 
+[gui]
+
+theme/custom="res://theme.tres"
+
 [input]
 
 click={

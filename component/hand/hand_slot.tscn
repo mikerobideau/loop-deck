@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgs32ywb1nnbx"]
+
+[ext_resource type="Script" path="res://component/hand/hand_slot.gd" id="1_676e3"]
+
+[node name="HandSlot" type="Panel"]
+custom_minimum_size = Vector2(200, 300)
+offset_right = 200.0
+offset_bottom = 300.0
+script = ExtResource("1_676e3")
+
+[node name="CardContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

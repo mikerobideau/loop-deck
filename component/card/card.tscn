@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvknbh8hl3ojk"]
+
+[ext_resource type="Script" path="res://component/card/card.gd" id="1_thu8g"]
+[ext_resource type="Texture2D" uid="uid://di5obbdvog44h" path="res://asset/cd/1x/loop.png" id="2_yeqdw"]
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 300.0
+script = ExtResource("1_thu8g")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_yeqdw")
+
+[node name="TopContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 75.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="TopContainer"]
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "MOONLIGHT
+DRIVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
