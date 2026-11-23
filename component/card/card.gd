@@ -5,6 +5,8 @@ signal clicked(card: Card)
 signal drag_started(card: Card)
 signal drag_ended(card: Card)
 
+const FOCUS_COLOR = Color.WHITE
+const SELECTED_COLOR = Color.AQUA
 const DRAG_THRESHOLD := 8.0
 const SCALE_NORMAL = Vector2(1.0, 1.0)
 const SCALE_LARGE = Vector2(1.05, 1.05)
@@ -34,16 +36,21 @@ func _process(delta: float):
 		global_position = get_global_mouse_position() - offset
 		
 func _draw():
+	if has_focus():
+		draw_rect(Rect2(Vector2(-4, -4), size + Vector2(8,8)), FOCUS_COLOR, false, 5.0)
 	if selected:
-		draw_rect(Rect2(Vector2(-4, -4), size + Vector2(8,8)), Color(Color.AQUA), false, 5.0)
+		draw_rect(Rect2(Vector2(-4, -4), size + Vector2(8,8)), SELECTED_COLOR, false, 5.0)
 
 func _on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("click") and not Card.any_dragging and !moving:
+	if event is InputEventJoypadButton:
+		print(name, " button=", event.button_index, " pressed=", event.pressed,
+			" ui_accept=", event.is_action_pressed("ui_accept"))
+	if event.is_action_pressed('click') and not Card.any_dragging and !moving:
 		pressing = true
 		press_global = get_global_mouse_position()
 		offset = press_global - global_position
 		_update_z()
-	elif event.is_action_pressed('ui_accept'):
+	elif event.is_action_pressed('ui_accept') or event.is_action_pressed('select'):
 		clicked.emit(self)
 			
 func _input(event: InputEvent):

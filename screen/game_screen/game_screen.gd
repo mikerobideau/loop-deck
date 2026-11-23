@@ -11,6 +11,7 @@ func _ready():
 	hand.card_drawn.connect(drag_drop.register_card)
 	drag_drop.card_moved.connect(_on_card_moved)
 	hand.deal()
+	hand.get_slots()[0].get_card().grab_focus()
 
 func _on_card_moved(card: Card, from_slot: Slot, to_slot: Slot):
 	pass

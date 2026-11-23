@@ -14,9 +14,14 @@ func _process(_delta: float):
 		_highlight(_best_slot())
 	elif selected_card:
 		_highlight(_slot_under_mouse())
+		var focused := get_viewport().gui_get_focus_owner()
+		if focused is Slot and focused.is_empty():
+			_highlight(focused)
+		else:
+			_highlight(_slot_under_mouse())
 		
 func _unhandled_input(event: InputEvent):
-	if event.is_action_pressed('ui_cancel'):
+	if event.is_action_pressed('ui_cancel') or event.is_action_pressed('cancel'):
 		_select(null)
 
 func register_slots(new_slots: Array):
