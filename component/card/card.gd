@@ -35,6 +35,7 @@ func _input(event: InputEvent):
 		get_viewport().set_input_as_handled()
 			
 func _start_drag():
+	z_index = 100
 	home_position = position
 	dragging = true
 	DragDrop.is_dragging = true
@@ -59,6 +60,7 @@ func _slide_to(to_pos: Vector2):
 	tween.tween_property(self, 'position', to_pos, 0.2)
 	await tween.finished
 	moving = false
+	z_index = 0
 	
 func return_home():
 	print_debug('returning home')
