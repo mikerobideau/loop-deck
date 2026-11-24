@@ -12,6 +12,8 @@ const SCALE_NORMAL = Vector2(1.0, 1.0)
 const SCALE_LARGE = Vector2(1.05, 1.05)
 const Z_RAISED = 10
 
+@onready var name_label = $TopContainer/Name
+
 static var any_dragging := false
 
 var scale_tween: Tween
@@ -25,8 +27,16 @@ var pressing := false
 var press_global : Vector2
 var selected := false
 
+var data: CardData:
+	set(new_data):
+		data = new_data
+		_update_label()
+
 func _ready():
 	pivot_offset = size / 2
+	_update_label()
+	focus_entered.connect(_on_focus_entered)
+	focus_exited.connect(_on_focus_exited)
 
 func _process(delta: float):
 	if pressing and not dragging and get_global_mouse_position().distance_to(press_global) > DRAG_THRESHOLD:
@@ -34,6 +44,16 @@ func _process(delta: float):
 		_start_drag()
 	if dragging:
 		global_position = get_global_mouse_position() - offset
+		
+func _on_focus_entered():
+	queue_redraw()
+	if not Card.any_dragging and not moving:
+		Tooltip.show_for(self)
+
+func _on_focus_exited():
+	queue_redraw()
+	if not hovered:
+		Tooltip.hide_for(self)
 		
 func _draw():
 	if has_focus():
@@ -105,11 +125,13 @@ func _on_mouse_entered() -> void:
 	if not Card.any_dragging:
 		hovered = true
 		_scale(SCALE_LARGE)
+	Tooltip.show_for(self)
 
 func _on_mouse_exited() -> void:
 	if not dragging:
 		hovered = false
 		_scale(SCALE_NORMAL)
+	Tooltip.hide_for(self)
 		
 func _scale(new_scale: Vector2):
 	if scale_tween:
@@ -118,5 +140,9 @@ func _scale(new_scale: Vector2):
 	scale_tween.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	scale_tween.tween_property(self, 'scale', new_scale, 0.2)
 	
+func _update_label():
+	if name_label and data:
+		name_label.text = data.name
+
 func _update_z():
 	z_index = Z_RAISED if (pressing or dragging or moving or selected) else 0

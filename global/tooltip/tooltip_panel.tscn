@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://bntll5p0heurb"]
+
+[ext_resource type="PackedScene" uid="uid://c4ifehlna7r2c" path="res://component/ui/tag.tscn" id="1_7hol6"]
+[ext_resource type="Script" path="res://global/tooltip/tooltip_panel.gd" id="1_yxkia"]
+[ext_resource type="PackedScene" uid="uid://ck1bm4lrjp0a2" path="res://component/ui/divider.tscn" id="2_io1wt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ps62"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="TooltipPanel" type="Panel"]
+custom_minimum_size = Vector2(300, 300)
+offset_right = 200.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_0ps62")
+script = ExtResource("1_yxkia")
+
+[node name="Body" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Body"]
+layout_mode = 2
+
+[node name="Top" type="Control" parent="Body/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Body/VBoxContainer/Top"]
+layout_mode = 2
+offset_right = 120.0
+offset_bottom = 25.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_type_variation = &"HeaderSmall"
+text = "CARD NAME"
+
+[node name="Tag" parent="Body/VBoxContainer/Top" instance=ExtResource("1_7hol6")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -67.0
+offset_right = 0.0
+grow_horizontal = 0
+
+[node name="Tags" type="HBoxContainer" parent="Body/VBoxContainer"]
+layout_mode = 2
+
+[node name="Tag" parent="Body/VBoxContainer/Tags" instance=ExtResource("1_7hol6")]
+layout_mode = 2
+
+[node name="Tag2" parent="Body/VBoxContainer/Tags" instance=ExtResource("1_7hol6")]
+layout_mode = 2
+
+[node name="Divider" parent="Body/VBoxContainer" instance=ExtResource("2_io1wt")]
+layout_mode = 2
+
+[node name="DescriptionContainer" type="MarginContainer" parent="Body/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Description" type="Label" parent="Body/VBoxContainer/DescriptionContainer"]
+layout_mode = 2
+text = "This is the description of the card's ability"
+autowrap_mode = 3

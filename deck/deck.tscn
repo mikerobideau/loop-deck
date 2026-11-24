@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b42lcyj35kysu"]
+
+[ext_resource type="Script" path="res://deck/deck.gd" id="1_l0qhn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5q14m"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Deck" type="Panel"]
+custom_minimum_size = Vector2(200, 300)
+theme_override_styles/panel = SubResource("StyleBoxFlat_5q14m")
+script = ExtResource("1_l0qhn")

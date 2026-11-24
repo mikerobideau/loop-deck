@@ -8,9 +8,14 @@
 bg_color = Color(0.447059, 0.447059, 0.447059, 0.25098)
 
 [resource]
+HBoxContainer/constants/separation = 10
 HeaderLarge/fonts/font = ExtResource("1_15yg4")
 HeaderMedium/fonts/font = ExtResource("1_36jcs")
 HeaderSmall/font_sizes/font_size = 20
 HeaderSmall/fonts/font = ExtResource("1_36jcs")
 Label/fonts/font = ExtResource("2_bbv5n")
+MarginContainer/constants/margin_bottom = 16
+MarginContainer/constants/margin_left = 16
+MarginContainer/constants/margin_right = 16
+MarginContainer/constants/margin_top = 16
 Panel/styles/panel = SubResource("StyleBoxFlat_jneas")

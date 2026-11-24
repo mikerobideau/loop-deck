@@ -43,6 +43,3 @@ layout_mode = 2
 
 [node name="HandSlot6" parent="Slots" instance=ExtResource("2_2grxx")]
 layout_mode = 2
-
-[node name="HandSlot7" parent="Slots" instance=ExtResource("2_2grxx")]
-layout_mode = 2

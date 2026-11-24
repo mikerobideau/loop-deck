@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4ifehlna7r2c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3p28"]
+bg_color = Color(0.136181, 0.69269, 0.603365, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Tag" type="PanelContainer"]
+offset_right = 67.0
+offset_bottom = 20.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_h3p28")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"TooltipLabel"
+text = "Common"

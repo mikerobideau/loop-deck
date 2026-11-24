@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgqdmnr3b2s7s"]
+
+[ext_resource type="Script" path="res://global/tooltip/tooltip_global.gd" id="1_p3qeu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sw860"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="Tooltip" type="CanvasLayer"]
+script = ExtResource("1_p3qeu")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 300)
+offset_right = 294.0
+offset_bottom = 294.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sw860")

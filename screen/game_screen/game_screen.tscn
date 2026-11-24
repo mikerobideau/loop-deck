@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbg3rkvwjsr6o"]
+[gd_scene load_steps=6 format=3 uid="uid://dbg3rkvwjsr6o"]
 
 [ext_resource type="Script" path="res://screen/game_screen/game_screen.gd" id="1_8q3pw"]
 [ext_resource type="PackedScene" uid="uid://3vrs0yc1s8lg" path="res://component/hand/hand.tscn" id="2_5af6g"]
 [ext_resource type="Script" path="res://screen/game_screen/controls.gd" id="2_iosp5"]
 [ext_resource type="PackedScene" uid="uid://blidhtor3fjsk" path="res://component/board/board.tscn" id="3_ro3h3"]
+[ext_resource type="PackedScene" uid="uid://b42lcyj35kysu" path="res://deck/deck.tscn" id="5_f37o2"]
 
 [node name="GameScreen" type="Control"]
 layout_mode = 3
@@ -26,20 +27,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0.0588235, 1)
 
-[node name="Hand" parent="." instance=ExtResource("2_5af6g")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -800.0
-offset_top = -300.0
-offset_right = 800.0
-offset_bottom = 0.0
-grow_horizontal = 2
-grow_vertical = 0
-
 [node name="Board" parent="." instance=ExtResource("3_ro3h3")]
 layout_mode = 1
 anchors_preset = 8
@@ -53,3 +40,20 @@ offset_right = 800.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Bottom" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Hand" parent="Bottom" instance=ExtResource("2_5af6g")]
+layout_mode = 2
+
+[node name="Deck" parent="Bottom" instance=ExtResource("5_f37o2")]
+layout_mode = 2
+size_flags_horizontal = 0

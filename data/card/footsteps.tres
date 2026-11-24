@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://dgvh8ydks81sy"]
+
+[ext_resource type="Script" path="res://component/card/card_data.gd" id="1_pee5c"]
+
+[resource]
+script = ExtResource("1_pee5c")
+name = "Footsteps"
+role = 0
+instrument = 0
+description = "If first, +10 points"

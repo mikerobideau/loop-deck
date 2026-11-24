@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgqdmnr3b2s7s"]
+
+[ext_resource type="Script" path="res://global/tooltip/tooltip_global.gd" id="1_p3qeu"]
+[ext_resource type="PackedScene" uid="uid://bntll5p0heurb" path="res://global/tooltip/tooltip_panel.tscn" id="2_iaqyf"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_p3qeu")
+
+[node name="TooltipPanel" parent="." instance=ExtResource("2_iaqyf")]

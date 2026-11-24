@@ -43,6 +43,3 @@ layout_mode = 2
 
 [node name="Slot6" parent="Slots" instance=ExtResource("1_a3avi")]
 layout_mode = 2
-
-[node name="Slot7" parent="Slots" instance=ExtResource("1_a3avi")]
-layout_mode = 2
