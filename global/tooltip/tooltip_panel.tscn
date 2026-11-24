@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bntll5p0heurb"]
 
-[ext_resource type="PackedScene" uid="uid://c4ifehlna7r2c" path="res://component/ui/tag.tscn" id="1_7hol6"]
+[ext_resource type="PackedScene" uid="uid://c4ifehlna7r2c" path="res://component/ui/chip.tscn" id="1_7hol6"]
 [ext_resource type="Script" path="res://global/tooltip/tooltip_panel.gd" id="1_yxkia"]
 [ext_resource type="PackedScene" uid="uid://ck1bm4lrjp0a2" path="res://component/ui/divider.tscn" id="2_io1wt"]
 
@@ -42,7 +42,7 @@ size_flags_vertical = 0
 theme_type_variation = &"HeaderSmall"
 text = "CARD NAME"
 
-[node name="Tag" parent="Body/VBoxContainer/Top" instance=ExtResource("1_7hol6")]
+[node name="Rarity" parent="Body/VBoxContainer/Top" instance=ExtResource("1_7hol6")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -51,13 +51,13 @@ offset_left = -67.0
 offset_right = 0.0
 grow_horizontal = 0
 
-[node name="Tags" type="HBoxContainer" parent="Body/VBoxContainer"]
+[node name="Chips" type="HBoxContainer" parent="Body/VBoxContainer"]
 layout_mode = 2
 
-[node name="Tag" parent="Body/VBoxContainer/Tags" instance=ExtResource("1_7hol6")]
+[node name="Instrument" parent="Body/VBoxContainer/Chips" instance=ExtResource("1_7hol6")]
 layout_mode = 2
 
-[node name="Tag2" parent="Body/VBoxContainer/Tags" instance=ExtResource("1_7hol6")]
+[node name="Role" parent="Body/VBoxContainer/Chips" instance=ExtResource("1_7hol6")]
 layout_mode = 2
 
 [node name="Divider" parent="Body/VBoxContainer" instance=ExtResource("2_io1wt")]

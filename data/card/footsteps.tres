@@ -8,3 +8,4 @@ name = "Footsteps"
 role = 0
 instrument = 0
 description = "If first, +10 points"
+rarity = 2

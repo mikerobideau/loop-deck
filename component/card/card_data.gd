@@ -16,7 +16,7 @@ enum Instrument {
 	ACOUSTIC_GUITAR,
 	SYNTH,
 	PIANO,
-	SAXAPHONE
+	SAXOPHONE
 }
 
 @export var name: String
@@ -24,3 +24,9 @@ enum Instrument {
 @export var instrument: Instrument
 @export var description: String
 @export var rarity: Rarity.Value
+
+static func role_text(value: Role) -> String:
+	return str(Role.find_key(value)).capitalize()
+	
+static func instrument_text(value: Instrument) -> String:
+	return str(Instrument.find_key(value)).capitalize()

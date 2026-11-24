@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4ifehlna7r2c"]
+[gd_scene load_steps=3 format=3 uid="uid://c4ifehlna7r2c"]
+
+[ext_resource type="Script" path="res://component/ui/chip.gd" id="1_8gtfb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3p28"]
 bg_color = Color(0.136181, 0.69269, 0.603365, 1)
@@ -7,10 +9,11 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[node name="Tag" type="PanelContainer"]
+[node name="Chip" type="PanelContainer"]
 offset_right = 67.0
 offset_bottom = 20.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_h3p28")
+script = ExtResource("1_8gtfb")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -23,4 +26,3 @@ theme_override_constants/margin_bottom = 4
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"TooltipLabel"
-text = "Common"

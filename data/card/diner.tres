@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://h62w1phslat7"]
+
+[ext_resource type="Script" path="res://component/card/card_data.gd" id="1_7lb27"]
+
+[resource]
+script = ExtResource("1_7lb27")
+name = "Diner"
+role = 3
+instrument = 7
+description = "+10 points for each lead in hand"
+rarity = 0

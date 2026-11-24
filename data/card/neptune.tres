@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://cb6wiw8iekmeb"]
+
+[ext_resource type="Script" path="res://component/card/card_data.gd" id="1_dcjvy"]
+
+[resource]
+script = ExtResource("1_dcjvy")
+name = "Neptune"
+role = 3
+instrument = 5
+description = "+1 flow for each previous card"
+rarity = 1

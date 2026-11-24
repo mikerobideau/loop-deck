@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://dckkoscqmgbt8"]
+
+[ext_resource type="Script" path="res://component/card/card_data.gd" id="1_hqlsm"]
+
+[resource]
+script = ExtResource("1_hqlsm")
+name = "Boombox"
+role = 1
+instrument = 1
+description = "If between percussion and rhythm, +5 flow"
+rarity = 0

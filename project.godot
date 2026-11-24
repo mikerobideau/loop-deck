@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 CardFactory="*res://global/card_factory_global.gd"
 Tooltip="*res://global/tooltip/tooltip_global.tscn"
+Style="*res://global/style_global.gd"
 
 [display]
 
