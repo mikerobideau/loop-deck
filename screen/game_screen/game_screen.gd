@@ -14,7 +14,7 @@ func _ready():
 	controls.card_moved.connect(_on_card_moved)
 	hand.deck = deck
 	hand.deal()
-	hand.get_slots()[0].get_card().grab_focus()
+	#hand.get_slots()[0].get_card().grab_focus()
 
 func _on_card_moved(card: Card, from_slot: Slot, to_slot: Slot):
 	pass
