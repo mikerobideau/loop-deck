@@ -1,5 +1,5 @@
-class_name Reward
-extends Resource
+class_name ScoreEffect
+extends Effect
 
 enum Type {
 	POINTS,

@@ -23,5 +23,8 @@ func _on_card_moved(card: Card, from_slot: Slot, to_slot: Slot):
 
 func _on_play_button_pressed() -> void:
 	for card in board.get_cards():
-		var reward = card_manager.get_effect(card, board.get_cards(), hand.get_cards(), deck.cards)
-		print_debug('Reward: ' + str(reward.value) + ' ' + str(reward.type))	
+		var effect = card_manager.get_effect(card, board.get_cards(), hand.get_cards(), deck.cards)
+		if effect is ScoreEffectResponse:
+			print_debug('effect: ' + str(effect.value) + ' ' + str(effect.type))	
+		else:
+			print_debug('effect is not score effect')

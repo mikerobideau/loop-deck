@@ -3,26 +3,26 @@
 [ext_resource type="Script" path="res://component/ability/ability.gd" id="1_7vft1"]
 [ext_resource type="Script" path="res://component/card/card_data.gd" id="1_hqlsm"]
 [ext_resource type="Script" path="res://data/active_condition/always.gd" id="1_ou57q"]
-[ext_resource type="Script" path="res://data/condition/for_each_previous_matching_instrument.gd" id="2_876h4"]
-[ext_resource type="Script" path="res://component/ability/reward.gd" id="2_jdcgc"]
+[ext_resource type="Script" path="res://component/ability/score_effect.gd" id="2_arnkj"]
+[ext_resource type="Script" path="res://data/condition/previous_cards_with_instrument.gd" id="3_yo4dy"]
 
 [sub_resource type="Resource" id="Resource_pq5im"]
 script = ExtResource("1_ou57q")
 
-[sub_resource type="Resource" id="Resource_esdll"]
-script = ExtResource("2_876h4")
-instrument = 0
-
-[sub_resource type="Resource" id="Resource_r54ju"]
-script = ExtResource("2_jdcgc")
+[sub_resource type="Resource" id="Resource_xn8e3"]
+script = ExtResource("2_arnkj")
 type = 0
 value = 5
+
+[sub_resource type="Resource" id="Resource_esdll"]
+script = ExtResource("3_yo4dy")
+instrument = 0
 
 [sub_resource type="Resource" id="Resource_t1gcn"]
 script = ExtResource("1_7vft1")
 active_condition = SubResource("Resource_pq5im")
 match_condition = SubResource("Resource_esdll")
-reward = SubResource("Resource_r54ju")
+effect = SubResource("Resource_xn8e3")
 
 [resource]
 script = ExtResource("1_hqlsm")

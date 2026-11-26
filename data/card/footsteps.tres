@@ -2,21 +2,21 @@
 
 [ext_resource type="Script" path="res://data/active_condition/always.gd" id="1_hok31"]
 [ext_resource type="Script" path="res://component/card/card_data.gd" id="1_pee5c"]
-[ext_resource type="Script" path="res://component/ability/reward.gd" id="2_jy7wg"]
+[ext_resource type="Script" path="res://component/ability/score_effect.gd" id="2_r2j03"]
 [ext_resource type="Script" path="res://component/ability/ability.gd" id="3_e7xts"]
 
 [sub_resource type="Resource" id="Resource_up43k"]
 script = ExtResource("1_hok31")
 
-[sub_resource type="Resource" id="Resource_r1gbw"]
-script = ExtResource("2_jy7wg")
+[sub_resource type="Resource" id="Resource_aw8he"]
+script = ExtResource("2_r2j03")
 type = 0
 value = 10
 
 [sub_resource type="Resource" id="Resource_jqpk1"]
 script = ExtResource("3_e7xts")
 active_condition = SubResource("Resource_up43k")
-reward = SubResource("Resource_r1gbw")
+effect = SubResource("Resource_aw8he")
 
 [resource]
 script = ExtResource("1_pee5c")

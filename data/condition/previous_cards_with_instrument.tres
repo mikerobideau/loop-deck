@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ForEachPreviousMatchingInstrument" load_steps=2 format=3 uid="uid://ck11us1c5cbht"]
 
-[ext_resource type="Script" path="res://data/condition/for_each_previous_matching_instrument.gd" id="1_jt12h"]
+[ext_resource type="Script" path="res://data/condition/previous_cards_with_instrument.gd" id="1_jt12h"]
 
 [resource]
 script = ExtResource("1_jt12h")

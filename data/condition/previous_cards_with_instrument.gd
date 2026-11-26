@@ -1,4 +1,4 @@
-class_name ForEachPreviousMatchingInstrument
+class_name PreviousCardsWithInstrument
 extends MatchCondition
 
 @export var instrument: CardData.Instrument
