@@ -1,10 +1,12 @@
 class_name GameScreen
 extends Control
 
+@onready var card_manager = $CardManager
 @onready var controls = $Controls
 @onready var board = $Board
-@onready var deck = $Bottom/Deck
+@onready var deck = $Bottom/DeckContainer/Deck
 @onready var hand = $Bottom/Hand
+#@onready var play_button = $Bottom/ActionContainer/PlayButton
 
 func _ready():
 	deck.cards = CardFactory.create_standard_deck()
@@ -18,3 +20,8 @@ func _ready():
 
 func _on_card_moved(card: Card, from_slot: Slot, to_slot: Slot):
 	pass
+
+func _on_play_button_pressed() -> void:
+	for card in board.get_cards():
+		var reward = card_manager.get_effect(card, board.get_cards(), hand.get_cards(), deck.cards)
+		print_debug('Reward: ' + str(reward.value) + ' ' + str(reward.type))	

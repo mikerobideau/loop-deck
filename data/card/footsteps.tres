@@ -1,11 +1,28 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://dgvh8ydks81sy"]
+[gd_resource type="Resource" script_class="CardData" load_steps=8 format=3 uid="uid://dgvh8ydks81sy"]
 
+[ext_resource type="Script" path="res://data/active_condition/always.gd" id="1_hok31"]
 [ext_resource type="Script" path="res://component/card/card_data.gd" id="1_pee5c"]
+[ext_resource type="Script" path="res://component/ability/reward.gd" id="2_jy7wg"]
+[ext_resource type="Script" path="res://component/ability/ability.gd" id="3_e7xts"]
+
+[sub_resource type="Resource" id="Resource_up43k"]
+script = ExtResource("1_hok31")
+
+[sub_resource type="Resource" id="Resource_r1gbw"]
+script = ExtResource("2_jy7wg")
+type = 0
+value = 10
+
+[sub_resource type="Resource" id="Resource_jqpk1"]
+script = ExtResource("3_e7xts")
+active_condition = SubResource("Resource_up43k")
+reward = SubResource("Resource_r1gbw")
 
 [resource]
 script = ExtResource("1_pee5c")
 name = "Footsteps"
 role = 0
 instrument = 0
-description = "If first, +10 points"
+description = "+10 points"
 rarity = 2
+ability = SubResource("Resource_jqpk1")

@@ -3,13 +3,21 @@ extends Panel
 
 signal card_drawn(card: Card)
 
+@onready var slots = $Slots
+
 var CardScene = preload("res://component/card/card.tscn")
 
 const HAND_SIZE = 6
 
-@onready var slots = $Slots
-
 var deck: Deck
+
+func get_cards() -> Array[Card]:
+	var cards: Array[Card]
+	for slot in slots.get_children():
+		var card = slot.get_card()
+		if card:
+			cards.append(card)
+	return cards
 
 func deal(n := HAND_SIZE):
 	for i in range(n):

@@ -1,11 +1,34 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://dckkoscqmgbt8"]
+[gd_resource type="Resource" script_class="CardData" load_steps=10 format=3 uid="uid://dckkoscqmgbt8"]
 
+[ext_resource type="Script" path="res://component/ability/ability.gd" id="1_7vft1"]
 [ext_resource type="Script" path="res://component/card/card_data.gd" id="1_hqlsm"]
+[ext_resource type="Script" path="res://data/active_condition/always.gd" id="1_ou57q"]
+[ext_resource type="Script" path="res://data/condition/for_each_previous_matching_instrument.gd" id="2_876h4"]
+[ext_resource type="Script" path="res://component/ability/reward.gd" id="2_jdcgc"]
+
+[sub_resource type="Resource" id="Resource_pq5im"]
+script = ExtResource("1_ou57q")
+
+[sub_resource type="Resource" id="Resource_esdll"]
+script = ExtResource("2_876h4")
+instrument = 0
+
+[sub_resource type="Resource" id="Resource_r54ju"]
+script = ExtResource("2_jdcgc")
+type = 0
+value = 5
+
+[sub_resource type="Resource" id="Resource_t1gcn"]
+script = ExtResource("1_7vft1")
+active_condition = SubResource("Resource_pq5im")
+match_condition = SubResource("Resource_esdll")
+reward = SubResource("Resource_r54ju")
 
 [resource]
 script = ExtResource("1_hqlsm")
 name = "Boombox"
 role = 1
 instrument = 1
-description = "If between percussion and rhythm, +5 flow"
+description = "For each previous drums, +5 points"
 rarity = 0
+ability = SubResource("Resource_t1gcn")

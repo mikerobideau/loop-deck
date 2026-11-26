@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbg3rkvwjsr6o"]
+[gd_scene load_steps=7 format=3 uid="uid://dbg3rkvwjsr6o"]
 
 [ext_resource type="Script" path="res://screen/game_screen/game_screen.gd" id="1_8q3pw"]
 [ext_resource type="PackedScene" uid="uid://3vrs0yc1s8lg" path="res://component/hand/hand.tscn" id="2_5af6g"]
 [ext_resource type="Script" path="res://screen/game_screen/controls.gd" id="2_iosp5"]
+[ext_resource type="Script" path="res://screen/game_screen/card_manager.gd" id="2_knte1"]
 [ext_resource type="PackedScene" uid="uid://blidhtor3fjsk" path="res://component/board/board.tscn" id="3_ro3h3"]
 [ext_resource type="PackedScene" uid="uid://b42lcyj35kysu" path="res://deck/deck.tscn" id="5_f37o2"]
 
@@ -14,6 +15,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8q3pw")
+
+[node name="CardManager" type="Node" parent="."]
+script = ExtResource("2_knte1")
 
 [node name="Controls" type="Node2D" parent="."]
 script = ExtResource("2_iosp5")
@@ -51,17 +55,28 @@ offset_top = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="DeckContainer" type="CenterContainer" parent="Bottom"]
+custom_minimum_size = Vector2(650, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Deck" parent="Bottom/DeckContainer" instance=ExtResource("5_f37o2")]
+layout_mode = 2
+size_flags_horizontal = 0
+
 [node name="Hand" parent="Bottom" instance=ExtResource("2_5af6g")]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Deck" parent="Bottom" instance=ExtResource("5_f37o2")]
+[node name="ActionContainer" type="CenterContainer" parent="Bottom"]
+custom_minimum_size = Vector2(650, 0)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
 
-[node name="Actions" type="MarginContainer" parent="Bottom"]
+[node name="PlayButton" type="Button" parent="Bottom/ActionContainer"]
 layout_mode = 2
-
-[node name="PlayButton" type="Button" parent="Bottom/Actions"]
-layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
 text = "PLAY"
+
+[connection signal="pressed" from="Bottom/ActionContainer/PlayButton" to="." method="_on_play_button_pressed"]

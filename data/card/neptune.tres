@@ -1,11 +1,34 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://cb6wiw8iekmeb"]
+[gd_resource type="Resource" script_class="CardData" load_steps=10 format=3 uid="uid://cb6wiw8iekmeb"]
 
 [ext_resource type="Script" path="res://component/card/card_data.gd" id="1_dcjvy"]
+[ext_resource type="Script" path="res://data/active_condition/always.gd" id="1_j6qh2"]
+[ext_resource type="Script" path="res://component/ability/ability.gd" id="2_1hpmy"]
+[ext_resource type="Script" path="res://data/condition/for_each_previous_matching_instrument.gd" id="2_ufovr"]
+[ext_resource type="Script" path="res://component/ability/reward.gd" id="3_suony"]
+
+[sub_resource type="Resource" id="Resource_ucqq6"]
+script = ExtResource("1_j6qh2")
+
+[sub_resource type="Resource" id="Resource_f5lh5"]
+script = ExtResource("2_ufovr")
+instrument = 5
+
+[sub_resource type="Resource" id="Resource_prldi"]
+script = ExtResource("3_suony")
+type = 1
+value = 1
+
+[sub_resource type="Resource" id="Resource_xj8v1"]
+script = ExtResource("2_1hpmy")
+active_condition = SubResource("Resource_ucqq6")
+match_condition = SubResource("Resource_f5lh5")
+reward = SubResource("Resource_prldi")
 
 [resource]
 script = ExtResource("1_dcjvy")
 name = "Neptune"
 role = 3
 instrument = 5
-description = "+1 flow for each previous card"
+description = "For each previous Electric Guitar, +1 mult"
 rarity = 1
+ability = SubResource("Resource_xj8v1")

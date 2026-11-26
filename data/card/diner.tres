@@ -1,11 +1,28 @@
-[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://h62w1phslat7"]
+[gd_resource type="Resource" script_class="CardData" load_steps=8 format=3 uid="uid://h62w1phslat7"]
 
 [ext_resource type="Script" path="res://component/card/card_data.gd" id="1_7lb27"]
+[ext_resource type="Script" path="res://data/active_condition/always.gd" id="1_x0vkm"]
+[ext_resource type="Script" path="res://component/ability/reward.gd" id="2_etypm"]
+[ext_resource type="Script" path="res://component/ability/ability.gd" id="3_qq07x"]
+
+[sub_resource type="Resource" id="Resource_2vddv"]
+script = ExtResource("1_x0vkm")
+
+[sub_resource type="Resource" id="Resource_pcxik"]
+script = ExtResource("2_etypm")
+type = 1
+value = 2
+
+[sub_resource type="Resource" id="Resource_0xmrj"]
+script = ExtResource("3_qq07x")
+active_condition = SubResource("Resource_2vddv")
+reward = SubResource("Resource_pcxik")
 
 [resource]
 script = ExtResource("1_7lb27")
 name = "Diner"
 role = 3
 instrument = 7
-description = "+10 points for each lead in hand"
+description = "+2 mult"
 rarity = 0
+ability = SubResource("Resource_0xmrj")

@@ -24,6 +24,7 @@ enum Instrument {
 @export var instrument: Instrument
 @export var description: String
 @export var rarity: Rarity.Value
+@export var ability: Ability
 
 static func role_text(value: Role) -> String:
 	return str(Role.find_key(value)).capitalize()

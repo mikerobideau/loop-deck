@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Always" load_steps=2 format=3 uid="uid://c360lhe3pyvjj"]
+
+[ext_resource type="Script" path="res://data/active_condition/always.gd" id="1_luhta"]
+
+[resource]
+script = ExtResource("1_luhta")
