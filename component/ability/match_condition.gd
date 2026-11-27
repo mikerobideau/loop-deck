@@ -11,3 +11,6 @@ func find_previous_cards(context: ConditionContext) -> Array[Card]:
 			return cards
 		cards.append(c)
 	return cards
+	
+func description() -> String:
+	return ''

@@ -11,3 +11,6 @@ func find_matches(context: ConditionContext) -> MatchResponse:
 			matches.append(card)
 	response.matches = matches
 	return response
+	
+func description() -> String:
+	return 'for each previous ' + CardData.instrument_text(instrument)
